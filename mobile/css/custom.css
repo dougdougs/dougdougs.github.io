@@ -267,7 +267,7 @@ section#test_el{
 .termometro-graus > *,
 .nome-clima{
     text-align: center;
-    font-weight: lighter;
+    font-weight: 300;
 }
 .wrapper-icon-clima i{
     font-size: 100px;
@@ -278,6 +278,7 @@ section#test_el{
 .termometro-graus .principal{
     font-size: 6em;
     margin: 10px 0;
+    font-weight: lighter;
 }
 
 .minima-maxima span {
