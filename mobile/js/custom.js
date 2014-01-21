@@ -49,7 +49,7 @@ function displayLocation(latitude,longitude){
         request.onreadystatechange = function(){
           if(request.readyState == 4 && request.status == 200){
             var data = JSON.parse(request.responseText);
-            var address = data.results[3];
+            var address = data.results[4];
             geoloc.innerHTML=" "+address.formatted_address+ " ";
           }
         };
