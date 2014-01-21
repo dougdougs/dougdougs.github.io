@@ -50,7 +50,7 @@ function displayLocation(latitude,longitude){
           if(request.readyState == 4 && request.status == 200){
             var data = JSON.parse(request.responseText);
             var address = data.results[0];
-            geoloc.innerHTML="oi"+address.formatted_address+ "la";
+            geoloc.innerHTML=+address.formatted_address+;
           }
         };
         request.send();
@@ -80,7 +80,7 @@ function displayLocation(latitude,longitude){
 
       var options = {
         enableHighAccuracy: true,
-        timeout: 1000,
+        timeout: 10000,
         maximumAge: 0
       };
 
