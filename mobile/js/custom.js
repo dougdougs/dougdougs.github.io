@@ -38,6 +38,8 @@ var element = document.getElementById('offcanvas-menu');
 
 // GEOLOCATION
 
+var geoloc = document.getElementById("geoloc");
+
 function getPosition(){
   // Verifica se o browser do usuario tem suporte a geolocation
   if ( navigator.geolocation ){
@@ -73,4 +75,11 @@ function getPosition(){
  
 $( document ).ready( function(){
   getPosition();
+  geoloc.innerHTML= "Latitude: " + posicao.coords.latitude + 
+    "<br>Longitude: " + posicao.coords.longitude; 
 } );
+
+
+
+
+
