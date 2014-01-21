@@ -48,6 +48,7 @@ function getPosition(){
     // sucesso! 
     function( posicao ){
       console.log( posicao.coords.latitude, posicao.coords.longitude );
+      
       geoloc.innerHTML= "Latitude: " + posicao.coords.latitude + 
         "<br>Longitude: " + posicao.coords.longitude; 
     },
