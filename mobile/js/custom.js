@@ -37,49 +37,53 @@ var element = document.getElementById('offcanvas-menu');
 
 
 // GEOLOCATION
+function displayLocation(latitude,longitude){
+        var request = new XMLHttpRequest();
 
-var geoloc = document.getElementById("geoloc");
+        var method = 'GET';
+        var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
+        var async = true;
 
-function getPosition(){
-  // Verifica se o browser do usuario tem suporte a geolocation
-  if ( navigator.geolocation ){
-    navigator.geolocation.getCurrentPosition( 
- 
-    // sucesso! 
-    function( posicao ){
-      console.log( posicao.coords.latitude, posicao.coords.longitude );
-      
-      geoloc.innerHTML= "Latitude: " + posicao.coords.latitude + 
-        "<br>Longitude: " + posicao.coords.longitude; 
-    },
- 
-    // erro :( 
-    function ( erro ){
-      var erroDescricao = 'Ops, ';
-      switch( erro.code ) {
-        case erro.PERMISSION_DENIED:
-          erroDescricao += 'usuário não autorizou a Geolocation.';
-        break;
-        case erro.POSITION_UNAVAILABLE:
-          erroDescricao += 'localização indisponível.';
-        break;
-        case erro.TIMEOUT:
-          erroDescricao += 'tempo expirado.';
-        break;
-        case erro.UNKNOWN_ERROR:
-         erroDescricao += 'não sei o que foi, mas deu erro!';
-        break;
-      }
-      console.log( erroDescricao )
-    }
-   );
-  }
-}
- 
-$( document ).ready( function(){
-  getPosition();
-  
-} );
+        request.open(method, url, async);
+        request.onreadystatechange = function(){
+          if(request.readyState == 4 && request.status == 200){
+            var data = JSON.parse(request.responseText);
+            var address = data.results[0];
+            document.write(address.formatted_address);
+          }
+        };
+        request.send();
+      };
+
+      var successCallback = function(position){
+        var x = position.coords.latitude;
+        var y = position.coords.longitude;
+        displayLocation(x,y);
+      };
+
+      var errorCallback = function(error){
+        var errorMessage = 'Unknown error';
+        switch(error.code) {
+          case 1:
+            errorMessage = 'Permission denied';
+            break;
+          case 2:
+            errorMessage = 'Position unavailable';
+            break;
+          case 3:
+            errorMessage = 'Timeout';
+            break;
+        }
+        document.write(errorMessage);
+      };
+
+      var options = {
+        enableHighAccuracy: true,
+        timeout: 1000,
+        maximumAge: 0
+      };
+
+      navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);
 
 
 
