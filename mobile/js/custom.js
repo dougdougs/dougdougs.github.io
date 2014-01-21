@@ -33,3 +33,44 @@ var element = document.getElementById('offcanvas-menu');
         $('body').removeClass('offcanvas');
         $('.nav li').removeClass('animated bounceInRight ')
     });
+
+
+
+// GEOLOCATION
+
+function getPosition(){
+  // Verifica se o browser do usuario tem suporte a geolocation
+  if ( navigator.geolocation ){
+    navigator.geolocation.getCurrentPosition( 
+ 
+    // sucesso! 
+    function( posicao ){
+      console.log( posicao.coords.latitude, posicao.coords.longitude );
+    },
+ 
+    // erro :( 
+    function ( erro ){
+      var erroDescricao = 'Ops, ';
+      switch( erro.code ) {
+        case erro.PERMISSION_DENIED:
+          erroDescricao += 'usuário não autorizou a Geolocation.';
+        break;
+        case erro.POSITION_UNAVAILABLE:
+          erroDescricao += 'localização indisponível.';
+        break;
+        case erro.TIMEOUT:
+          erroDescricao += 'tempo expirado.';
+        break;
+        case erro.UNKNOWN_ERROR:
+         erroDescricao += 'não sei o que foi, mas deu erro!';
+        break;
+      }
+      console.log( erroDescricao )
+    }
+   );
+  }
+}
+ 
+$( document ).ready( function(){
+  getPosition();
+} );
