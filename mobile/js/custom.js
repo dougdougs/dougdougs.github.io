@@ -37,9 +37,10 @@ var element = document.getElementById('offcanvas-menu');
 
 
 // GEOLOCATION
+
 function displayLocation(latitude,longitude){
         var request = new XMLHttpRequest();
-
+        var geoloc = document.getElementById("geoloc");
         var method = 'GET';
         var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
         var async = true;
@@ -49,7 +50,7 @@ function displayLocation(latitude,longitude){
           if(request.readyState == 4 && request.status == 200){
             var data = JSON.parse(request.responseText);
             var address = data.results[0];
-            console.log( address.formatted_address );
+            geoloc.innerHTML="address.formatted_address";
           }
         };
         request.send();
