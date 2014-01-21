@@ -50,7 +50,7 @@ function displayLocation(latitude,longitude){
           if(request.readyState == 4 && request.status == 200){
             var data = JSON.parse(request.responseText);
             var address = data.results[0];
-            geoloc.innerHTML="address.formatted_address";
+            geoloc.innerHTML="oi"+address.formatted_address+ "la";
           }
         };
         request.send();
