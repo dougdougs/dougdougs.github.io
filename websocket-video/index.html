@@ -50,14 +50,24 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="container">
+      <!-- Patent_Absurdity_LQ_350kbit.ogv -->
+        <video src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"
+            id="movie"
+            width="400"
+            height="224"
+            preload="auto"
+            autobuffer
 
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+            controls>
+        <p>Requires HTML5 Ogg Theora/Vorbis capable browser.</p>
+      </video>
+
+      <div id="buffered"></div>
+      <div id="duration"></div>
+      <div id="loadingStatus"> 0% </div>
       </div>
-
-    </div><!-- /.container -->
+    <br>
 
 
     <!-- Bootstrap core JavaScript
@@ -65,5 +75,62 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+    
+      <script>
+
+        function returnTimeAsString(r) {
+          var timeValue = "";
+          for (var i=0; i<r.length; i++) {
+            timeValue += "" + r.start(i) + "," + r.end(i) + "";
+          }
+          return timeValue;
+        }
+        
+        function showBuffer() {
+            var v = document.getElementById('movie');
+            var r = v.buffered;
+            var timeValueBuffer = returnTimeAsString(v.buffered);
+            document.getElementById('buffered').innerHTML = '<p> Tempo carregado: ' +  timeValueBuffer + ' segundos';
+        }
+
+        function showDuration() {
+            var v = document.getElementById('movie');
+            var r = v.seekable;
+            var timeValueDuration = returnTimeAsString(v.seekable);
+            document.getElementById('duration').innerHTML = '<p> Duração do filme: ' + timeValueDuration + ' segundos';
+        }
+
+
+
+
+
+        function percentageLoaded() {
+
+          var v = document.getElementById("movie");
+            showBuffer(); // MOSTRA EM SEGUNDOS O BUFFER
+            showDuration(); // MOSTRA EM SEGUNDOS A DURAÇÃO
+
+            var convertToInteger = parseInt(((v.buffered.end(0) / v.duration) * 100)); // CONVERTE O BUFFER E A DURAÇÃO EM INTEIRO, DEPOIS EM PORCENTAGEM
+
+            // console.log(convertToInteger);
+            document.getElementById("loadingStatus").innerHTML =   convertToInteger + '%'; // APPEND NA DIV LOADING
+
+            if ( convertToInteger > 30 ) {
+              v.play();
+              clearInterval(UpdateLoading);
+            } else{};
+
+        }
+
+        var UpdateLoading = 
+          window.setInterval(function() {
+              percentageLoaded();
+          }, 500);
+
+
+        
+
+      </script>
   </body>
 </html>
