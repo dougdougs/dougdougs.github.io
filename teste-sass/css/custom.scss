@@ -1,0 +1,74 @@
+
+// MIXIN
+@mixin zero-m-p {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin margin($top-bottom, $left-right) {
+	margin: $top-bottom, $left-right;
+	padding: $top-bottom, $left-right;
+}
+
+// COLOR FUNCTIONS
+$grey: #eee;
+
+
+// MATH FUNCTIONS
+$width: 80%;
+$height: 20%;
+
+body{
+	background-color: #eee;
+}
+
+// comments com "//" não aparecem
+/*  comments com "/*" aparecem */
+
+a{
+	text-decoration: none;
+	&:hover{
+		text-decoration: underline;
+	}
+	&.red{
+		color: red;
+	}
+	&.blue{
+		color: blue;
+	}
+}
+
+
+header{
+	height: 300px;
+	h1{
+		background-color: #f00;
+	}
+}
+
+
+h1{
+	color: $grey;
+}
+
+h2{
+	color: darken($grey, 30%);
+}
+
+section{
+	width: $width;
+	height: $width/2;
+}
+
+ul{
+	@include zero-m-p();
+}
+
+li{
+	@extend ul;
+	color: $grey;
+}
+
+p{
+	@include margin(40px, 50px);
+}
