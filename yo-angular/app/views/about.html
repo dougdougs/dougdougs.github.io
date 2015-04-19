@@ -1,0 +1,92 @@
+<p>This is the about view.</p>
+<div id="player">
+	<a href="#" id="play" class="play"></a>
+</div>
+
+
+
+
+
+
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="data in data">
+  	<div class="container-fluid">
+  		<div class="row">
+			<div class="col-md-4">
+				<img class="img-responsive" ng-src="{{ ArtworkBig(data.origin.artwork_url)}}" alt="{{ data.origin.title }}">
+			</div>
+			<div class="col-md-8">
+				<h3>{{ data.origin.title }}</h3>
+		      <h4>by: {{ data.origin.user.username }}</h4>
+
+		      <div>
+		          <span>{{ data.origin.genre }}</span>
+		          <span>{{ data.origin.license }}</span>
+		      </div>
+
+		      <span class="songList_item_song_button" 
+		          song
+		          data-song-url="{{ data.origin.stream_url }}"
+		          data-song-thumbnail="{{ data.origin.artwork_url }}"
+		          data-song-title="{{ data.origin.title }}"
+		          data-song-user="{{ data.origin.user.username }}" >
+
+		          <i class="fa fa-play"></i>
+		          <i class="fa fa-pause"></i>
+		      </span>
+
+		      <a href="#" data-song-url="{{ data.origin.stream_url }}" ng-click="playSong()" class="song-url">play</a>
+
+			</div>
+  		</div>
+  	</div>
+  </li>
+
+</ul>
+
+<ul class="songList">
+    <li class="songList_item" ng-repeat="data in data"
+            ng-class="{ active: hover }"
+            ng-mouseover="hover = true"
+            ng-mouseleave="hover = false" >
+
+        <div class="songList_item_container_artwork">
+            <img src="{{data.origin.artwork_url}}" alt="{{ data.origin.title }}" class="songList_item_artwork">
+            <span class="songList_item_song_button" 
+                song
+                data-song-url="{{ data.origin.stream_url }}"
+                data-song-thumbnail="{{ data.origin.artwork_url }}"
+                data-song-title="{{ data.origin.title }}"
+                data-song-user="{{ data.origin.user.username }}" >
+
+                <i class="fa fa-play"></i>
+                <i class="fa fa-pause"></i>
+            </span>
+
+
+        </div>
+
+        
+        <section class="songList_item_inner">
+            <h2 class="songList_item_song_tit">{{ data.origin.title }}</h2>
+            <h4 class="songList_item_song_user">by: {{ data.origin.user.username }}</h4>
+
+            <!--<img src="{{ data.origin.waveform_url }}" alt="{{ data.origin.title }}" class="songList_item_song_waveForm">-->
+            <div class="songList_item_song_details">
+                <div>
+                    <span>
+                        <a href="{{ data.origin.download_url }}" open-external target="_blank"> <i class="fa fa-cloud-download"></i> download song</a>
+                    </span>
+                    <span>
+                        <a href="{{ data.origin.permalink_url }}" open-external target="_blank"> <i class="fa fa-external-link-square"></i> permalink</a>
+                    </span>
+                </div>
+                <div>
+                    <span>{{ data.origin.genre }}</span>
+                    <span>{{ data.origin.license }}</span>
+                </div>
+            </div>
+        </section>
+
+    </li>
+</ul>
