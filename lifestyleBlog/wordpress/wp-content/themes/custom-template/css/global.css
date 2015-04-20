@@ -1,0 +1,61 @@
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Glegoo:400,700);
+/* global box-sizing */
+*, *:after, *:before {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; }
+
+/* html element 62.5% font-size for REM use */
+html {
+  font-size: 62.5%; }
+
+/* clear */
+.clear {
+  *zoom: 1; }
+  .clear:before, .clear:after {
+    content: ' ';
+    display: table; }
+  .clear:after {
+    clear: both; }
+
+a {
+  color: black; }
+  a:hover {
+    color: black;
+    text-decoration: none; }
+  a:hover, a:active, a:focus {
+    outline: 0; }
+
+img {
+  max-width: 100%;
+  vertical-align: bottom; }
+
+input:focus {
+  outline: 0;
+  border: 1px solid #04A4CC; }
+
+/* ----------MISC---------- */
+::selection,
+::-webkit-selection,
+::-moz-selection {
+  background: #04A4CC;
+  color: #FFF;
+  text-shadow: none; }
+
+/* GLOBAL CSS */
+body {
+  font-family: "Exo 2", sans-serif;
+  color: black; }
+
+.wrapper {
+  max-width: 1280px;
+  width: 95%;
+  margin: 0 auto;
+  position: relative; }
+
+/*------------------------------------*\
+    RESPONSIVE
+\*------------------------------------*/

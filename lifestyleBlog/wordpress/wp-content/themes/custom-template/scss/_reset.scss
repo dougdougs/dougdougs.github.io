@@ -1,0 +1,65 @@
+//reset.scss
+
+/* global box-sizing */
+
+
+*{
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+	&:after,
+	&:before{
+		@extend *;
+	}
+}
+/* html element 62.5% font-size for REM use */
+html {
+	font-size:62.5%;
+}
+/* clear */
+
+.clear{
+	*zoom:1;
+	&:before,
+	&:after{
+		content:' ';
+		display:table;
+	}
+	&:after{
+		clear:both;
+	}
+}
+
+a{	
+	color: $primary-color;
+	&:hover {
+		color: $primary-color;
+		text-decoration:none;
+	}
+	&:hover,
+	&:active,
+	&:focus{
+		outline: 0;
+	}
+
+}
+
+img {
+	max-width:100%;
+	vertical-align:bottom;
+}
+
+input:focus {
+	outline:0;
+	border:1px solid #04A4CC;
+}
+/* ----------MISC---------- */
+::selection,
+::-webkit-selection  ,
+::-moz-selection  {
+	background:#04A4CC;
+	color:#FFF;
+	text-shadow:none;
+}
