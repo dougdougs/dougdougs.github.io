@@ -6,3 +6,7 @@
 	-ms-border-radius: $radius;
 	border-radius: $radius;
 }
+
+@mixin border($px, $color){
+	border: $px solid $color;
+}

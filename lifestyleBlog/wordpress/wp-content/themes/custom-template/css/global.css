@@ -56,6 +56,44 @@ body {
   margin: 0 auto;
   position: relative; }
 
+.nav.navbar {
+  min-height: 65px;
+  background-color: black;
+  border-color: black;
+  border: 0px solid transparent; }
+.nav .navbar-header {
+  position: relative; }
+  .nav .navbar-header .navbar-toggle {
+    border-color: white;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px; }
+    .nav .navbar-header .navbar-toggle .icon-bar {
+      background-color: white; }
+    .nav .navbar-header .navbar-toggle:hover, .nav .navbar-header .navbar-toggle:focus {
+      background-color: white; }
+      .nav .navbar-header .navbar-toggle:hover .icon-bar, .nav .navbar-header .navbar-toggle:focus .icon-bar {
+        background-color: black; }
+  .nav .navbar-header .logo {
+    width: 175px;
+    padding: 5px 0;
+    top: 10px; }
+.nav .navbar-nav > li > a {
+  padding-top: 0;
+  padding-bottom: 0;
+  color: white;
+  font-size: 21px;
+  line-height: 65px;
+  text-transform: uppercase; }
+  .nav .navbar-nav > li > a:hover, .nav .navbar-nav > li > a.active {
+    color: white;
+    box-shadow: inset 5px 0px 0px white; }
+.nav .navbar-collapse {
+  border: 0px solid transparent; }
+
 /*------------------------------------*\
     RESPONSIVE
 \*------------------------------------*/
+@media only screen and (min-width: 768px) {
+  .nav .navbar-nav > li > a:hover, .nav .navbar-nav > li > a.active {
+    box-shadow: inset 0px 5px 0px white; } }

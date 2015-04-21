@@ -27,6 +27,59 @@ body {
 }
 
 .nav {
+	&.navbar{
+		min-height: $navbar-height;
+		background-color: $primary-color;
+		border-color: $primary-color;
+		@include border(0px, transparent);
+	}
+	.navbar-header{
+		position: relative;
+
+		.navbar-toggle {
+			border-color: $clearest-color;
+			padding: 10px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+
+			.icon-bar{
+				background-color: $clearest-color;
+			}
+
+			&:hover,
+			&:focus{
+				background-color: $clearest-color;
+
+				.icon-bar{
+					background-color: $primary-color;
+				}
+			}
+		}
+
+		.logo {
+			width: 175px;
+			padding: 5px 0;
+			top: 10px;
+		}
+	}
+	.navbar-nav > li > a {
+		padding-top: 0;
+		padding-bottom: 0;
+		color: $clearest-color;
+		font-size: 21px;
+		line-height: $navbar-height;
+		text-transform: uppercase;
+
+		&:hover,
+		&.active{
+			color: $clearest-color;
+			box-shadow: inset 5px 0px 0px $clearest-color;		
+		}
+	}
+
+	.navbar-collapse{
+		@include border(0px, transparent);
+	}
 
 }
 
@@ -50,7 +103,14 @@ body {
 
 }
 @media only screen and (min-width:768px) {
-
+	.nav {
+		.navbar-nav > li > a {
+			&:hover,
+			&.active{
+				box-shadow: inset 0px 5px 0px $clearest-color;		
+			}
+		}
+	}
 }
 @media only screen and (min-width:1024px) {
 
