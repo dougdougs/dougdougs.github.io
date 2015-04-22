@@ -12,6 +12,7 @@
 		 <?php query_posts( 'tag=featured' );
 		 	if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
+
 		 	<!-- Test if the current post is in category 3. -->
 		 	<!-- If it is, the div box is given the CSS class "post-cat-three". -->
 		 	<!-- Otherwise, the div box is given the CSS class "post". -->
@@ -46,7 +47,11 @@
 
 		 	<!-- Stop The Loop (but note the "else:" - see next line). -->
 
-		 <?php endwhile; else : ?>
+		 <?php endwhile; 
+		 	// Reset Query
+		 	wp_reset_query();
+			else : 
+		?>
 
 
 		 	<!-- The very first "if" tested to see if there were any Posts to -->
