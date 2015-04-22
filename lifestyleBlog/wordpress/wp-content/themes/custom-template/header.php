@@ -33,16 +33,11 @@
 <body <?php body_class(); ?>>
 
 	<!-- wrapper -->
-	<div class="wrapper-blog">
+	<div class="wrapper">
 
 		<!-- header -->
 		<header class="header clear" role="banner">
 			<!-- nav -->
-			<!--
-				<nav class="nav">
-					<?php html5blank_nav(); ?>
-				</nav> 
-			-->
 			<nav class="nav navbar navbar-default"  role="navigation">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->

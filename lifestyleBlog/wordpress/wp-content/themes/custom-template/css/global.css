@@ -50,50 +50,107 @@ body {
   font-family: "Exo 2", sans-serif;
   color: black; }
 
-.wrapper {
-  max-width: 1280px;
-  width: 95%;
-  margin: 0 auto;
-  position: relative; }
+.txt-secondary-color {
+  color: #0271f2; }
 
-.nav.navbar {
+.wrapper .header .nav.navbar {
+  margin: 0;
   min-height: 65px;
   background-color: black;
-  border-color: black;
-  border: 0px solid transparent; }
-.nav .navbar-header {
+  border: 0px solid transparent;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px; }
+.wrapper .header .nav .navbar-header {
   position: relative; }
-  .nav .navbar-header .navbar-toggle {
+  .wrapper .header .nav .navbar-header .navbar-toggle {
     border-color: white;
     padding: 10px;
     margin-top: 15px;
     margin-bottom: 15px; }
-    .nav .navbar-header .navbar-toggle .icon-bar {
+    .wrapper .header .nav .navbar-header .navbar-toggle .icon-bar {
       background-color: white; }
-    .nav .navbar-header .navbar-toggle:hover, .nav .navbar-header .navbar-toggle:focus {
+    .wrapper .header .nav .navbar-header .navbar-toggle:hover, .wrapper .header .nav .navbar-header .navbar-toggle:focus {
       background-color: white; }
-      .nav .navbar-header .navbar-toggle:hover .icon-bar, .nav .navbar-header .navbar-toggle:focus .icon-bar {
+      .wrapper .header .nav .navbar-header .navbar-toggle:hover .icon-bar, .wrapper .header .nav .navbar-header .navbar-toggle:focus .icon-bar {
         background-color: black; }
-  .nav .navbar-header .logo {
-    width: 175px;
+  .wrapper .header .nav .navbar-header .logo {
+    width: 150px;
     padding: 5px 0;
     top: 10px; }
-.nav .navbar-nav > li > a {
+.wrapper .header .nav .navbar-nav > li > a {
   padding-top: 0;
   padding-bottom: 0;
   color: white;
   font-size: 21px;
   line-height: 65px;
   text-transform: uppercase; }
-  .nav .navbar-nav > li > a:hover, .nav .navbar-nav > li > a.active {
+  .wrapper .header .nav .navbar-nav > li > a:hover, .wrapper .header .nav .navbar-nav > li > a.active {
     color: white;
     box-shadow: inset 5px 0px 0px white; }
-.nav .navbar-collapse {
+.wrapper .header .nav .navbar-collapse {
   border: 0px solid transparent; }
+.wrapper .featured-posts {
+  background: black;
+  color: white; }
+  .wrapper .featured-posts h1 {
+    text-transform: uppercase;
+    font-size: 48px; }
+  .wrapper .featured-posts .post-anchor {
+    display: block;
+    position: relative; }
+    .wrapper .featured-posts .post-anchor .box {
+      position: relative;
+      width: 100%;
+      /* desired width */ }
+      .wrapper .featured-posts .post-anchor .box:before {
+        content: "";
+        display: block;
+        padding-top: 33.33%;
+        /* initial ratio of 1:1*/ }
+      .wrapper .featured-posts .post-anchor .box .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden; }
+        .wrapper .featured-posts .post-anchor .box .content img {
+          width: 100%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+    .wrapper .featured-posts .post-anchor h2 {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background: transparent;
+      background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.85)));
+      background: -moz-linear-gradient(center top, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: -moz-gradient(center top, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(color-startColorstr='transparent', endColorstr='rgba(0, 0, 0, 0.85)',GradientType=0 );
+      margin: 0; }
+      .wrapper .featured-posts .post-anchor h2 span {
+        color: #FFF;
+        position: absolute;
+        left: 25px;
+        bottom: 25px; }
 
 /*------------------------------------*\
     RESPONSIVE
 \*------------------------------------*/
 @media only screen and (min-width: 768px) {
-  .nav .navbar-nav > li > a:hover, .nav .navbar-nav > li > a.active {
+  .wrapper .header .nav .navbar-nav > li > a:hover, .wrapper .header .nav .navbar-nav > li > a.active {
     box-shadow: inset 0px 5px 0px white; } }

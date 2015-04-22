@@ -10,3 +10,49 @@
 @mixin border($px, $color){
 	border: $px solid $color;
 }
+
+@mixin linear-gradient($color-start, $from, $color-end, $to) { 
+	background: $color-start;
+	background: -webkit-gradient(linear, left top, left bottom, from($color-start), to($color-end));
+	background: -moz-linear-gradient(center top, $color-start $from, $color-end $to);
+	background: -moz-gradient(center top, $color-start $from, $color-end $to);
+	background: -webkit-linear-gradient(top, $color-start $from,$color-end $to);
+	background: -o-linear-gradient(top, $color-start $from,$color-end $to);
+	background: -ms-linear-gradient(top, $color-start $from,$color-end $to);
+	background: linear-gradient(to bottom, $color-start $from,$color-end $to);
+	filter: progid:DXImageTransform.Microsoft.gradient( color-startColorstr='#{$color-start}', endColorstr='#{$color-end}',GradientType=0 );
+}
+
+@mixin aspect-ratio($desired-width,$padding-top){
+
+	.box{
+		position: relative;
+		width: $desired-width;		/* desired width */
+		&:before{
+			content: "";
+			display: block;
+			padding-top: $padding-top; 	/* initial ratio of 1:1*/
+		}
+		.content{
+			position:  absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			overflow: hidden;
+
+			img{
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+
+			}
+		}
+	}
+}
