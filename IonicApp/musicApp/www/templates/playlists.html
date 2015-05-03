@@ -1,9 +1,21 @@
 <ion-view view-title="Playlists">
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
-      </ion-item>
-    </ion-list>
-  </ion-content>
+	<ion-content scroll="false" overflow-scroll="false">
+
+		<ion-slide-box on-slide-changed="slideHasChanged($index)">
+			<ion-slide ng-repeat="playlist in playlists"  >
+				<a href="#/app/playlists/{{playlist.id}}" title="">
+					<div class="box blue">
+						<h1>
+							{{playlist.title}}
+						</h1>
+					</div>
+				</a>
+			</ion-slide>
+		</ion-slide-box>
+		<!-- <ion-list>
+			<ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+				{{playlist.title}}
+			</ion-item>
+		</ion-list> -->
+	</ion-content>
 </ion-view>
