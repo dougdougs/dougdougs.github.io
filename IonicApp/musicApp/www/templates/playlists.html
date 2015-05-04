@@ -2,8 +2,11 @@
 	<ion-content scroll="false" overflow-scroll="false">
 
 		<ion-slide-box on-slide-changed="slideHasChanged($index)">
-			<ion-slide ng-repeat="album in albums"  >
-				<a href="#/app/playlists/{{playlist.id}}" title="">
+			<ion-slide ng-repeat="album in albums" >
+				<div class="bg-blur">
+					<img class="img-responsive" ng-src="{{album.images[0].url}}" alt="">
+				</div>
+				<a href="#/app/playlists/{{album.name}}" title="">
 					<div class="box blue">
 						<h1>
 							{{album.name}}

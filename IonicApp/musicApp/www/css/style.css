@@ -2,5 +2,17 @@
 body {
   background: 😍😍; }
 
+.img-responsive {
+  width: 100%;
+  height: auto; }
+
 ion-content .slider {
   height: 100%; }
+  ion-content .slider .bg-blur {
+    position: absolute;
+    z-index: -2;
+    overflow: hidden;
+    filter: blur(10px);
+    -webkit-filter: blur(50px);
+    width: 100%;
+    height: 100%; }
